@@ -65,6 +65,15 @@ Device Address:
 
 # 3. Install srsRAN_Project
 [follow this for "Vannila" install](https://docs.srsran.com/projects/project/en/latest/user_manuals/source/installation.html)
+
+when done check that it works:
+```bash
+$ gnb -v 
+
+--== srsRAN gNB (commit 9d5dd742a) ==--
+
+srsRAN 5G gNB version 24.10.0 (9d5dd742a)
+```
 # 4. Install open5GS
 Follow [THIS GUIDE](https://open5gs.org/open5gs/docs/guide/01-quickstart/)
 Don't use the Source Install, its hard, and weird, i've had little sucess with it. If you do , remember that the configuration file is actually `example.yaml` or something like that... 
@@ -106,6 +115,9 @@ login in admin/4123
 
 
 ## /etc/open5GS/
+if you get permission folders 
+`$ sudo chown -R $USER:$USER /etc/open5gs/`
+`$ chmod 777 /etc/open5GS/`
 `code /etc/open5GS/`
 ### `/etc/open5GS/amf.yml`
 in this file you want to change the MCC and MNC to match whatever you want. 001 - 01 works pretty well for the most part so we'll use that. 
@@ -133,7 +145,13 @@ $ amf.yaml
      security:
 ```
 ### `/etc/open5GS/nrf`
-
+```bash
+nrf:
+  serving:  # 5G roaming requires PLMN in NRF
+    - plmn_id:
+        mcc: 999 # << set to 001
+        mnc: 70 # << set to 01
+```
 
 #6. Sim Configuration
 ## pysim
