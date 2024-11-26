@@ -35,6 +35,8 @@ Notes on how to setup 5G using a B200 using srsRAN and open5GS.
   - A note on [gialer sims](https://www.gialer.com/collections/writable-sim-card?srsltid=AfmBOopnxaRaEf3ZiOZJkSau9cXRLsgZazs4cQkggr8iBu_cgaa3Q4SE). They are much cheaper than osmocom sims, and reading the srsRAN open5GS forums people apparently have made them work. But from my experience paying the extra $$ for the osmocom sim cards and using pysim worked, and i have not been able to get the gialer sims working with open5Gs to date. (They work fine for 4G/LTE srsRAN though!) 
 
 # 1. OS install and setup
+double check you have ubuntu 22.04 
+$ uname -a 
  - Install ubutnu 22.04 (GUI or No GUI doesn't matter. )
  - Setup internet. << Varies for each setup.
 Internet working? `ping 8.8.8.8`   
@@ -45,10 +47,30 @@ If not you might need to set your clock. ( `date -s "2 June 2023 14:05:00"`)
 `apt upgrade`
 
 # 2. Setting Up UHD
+make sure the device is connected:
+```bash
+macc@macc-desktop:~/srsRAN_Project/configs$ uhd_find_devices 
+[INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+--------------------------------------------------
+-- UHD Device 0
+--------------------------------------------------
+Device Address:
+    serial: 31C039C
+    name: MyB210
+    product: B210
+    type: b200
+
+```
+
 
 # 3. Install srsRAN_Project
 
 # 4. Install open5GS
+Follow [THIS GUIDE](https://open5gs.org/open5gs/docs/guide/01-quickstart/)
+Don't use the Source Install, its hard, and weird, i've had little sucess with it. If you do , remember that the configuration file is actually `example.yaml` or something like that... 
+
+if open5GS is installed there should be a file here: 
+`$ cat /etc/open5gs/amf.yaml `
 
 ## Setting UP the webgui
 its MUCH easier to change some settings for if you tend or want to access the gNB / Core remotely that you can also access the GUI without ssh tunnels for the port. 
@@ -80,3 +102,6 @@ its MUCH easier to change some settings for if you tend or want to access the gN
 
 # Working
 <img width="1258" alt="image" src="https://github.com/user-attachments/assets/001f5eba-4b8e-4925-be1f-46c8bd821113">
+
+# RANDOM References:
+[5G Tool Calcs](https://5g-tools.com/5g-nr-throughput-calculator/)
