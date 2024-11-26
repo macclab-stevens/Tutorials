@@ -237,7 +237,14 @@ Type <h> to view help
 # Comments on scripts and permissions:
 `sudo chmod o-rwx foldername to add permissions.`
 
-
+to see ip address assigned is in the SMF. (Session management function):
+``` macc@macc-desktop:~/srsRAN_Project/configs$ tail -f /var/log/open5gs/smf.log 
+11/26 14:19:58.951: [sbi] INFO: [PCF] (SCP-discover) NF registered [621a452a-ac2b-41ef-ba1a-71f88b864831] (../lib/sbi/path.c:212)
+11/26 14:19:58.951: [sbi] INFO: [621a452a-ac2b-41ef-ba1a-71f88b864831] NF Instance setup [type:PCF validity:0s] (../lib/sbi/path.c:227)
+11/26 14:19:58.951: [smf] INFO: NF EndPoint(addr) setup [127.0.0.13:7777] (../src/smf/npcf-handler.c:367)
+11/26 14:19:58.951: [smf] INFO: UE SUPI[imsi-001010000138080] DNN[internet] IPv4[10.45.0.2] IPv6[] (../src/smf/npcf-handler.c:578)
+```
+IN this case its 10.45.0.2
 
 
 
@@ -248,3 +255,4 @@ Type <h> to view help
 
 # RANDOM References:
 [5G Tool Calcs](https://5g-tools.com/5g-nr-throughput-calculator/)
+
