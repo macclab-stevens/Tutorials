@@ -68,13 +68,37 @@ Device Address:
 # 4. Install open5GS
 Follow [THIS GUIDE](https://open5gs.org/open5gs/docs/guide/01-quickstart/)
 Don't use the Source Install, its hard, and weird, i've had little sucess with it. If you do , remember that the configuration file is actually `example.yaml` or something like that... 
-
+we can ignored anything _zypper_ related because thats a openSUSE thing and not Ubuntu 22.04 thing. 
 if open5GS is installed there should be a file here: 
 `$ cat /etc/open5gs/amf.yaml `
+
+There is an external interface that is made. This is the N6. its called ogstun! lol 
+```bash
+$ ip a
+26: ogstun: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1400 qdisc fq_codel state UP group default qlen 500
+    link/none 
+    inet 10.45.0.1/16 brd 10.45.255.255 scope global ogstun
+       valid_lft forever preferred_lft forever
+    inet6 2001:db8:cafe::1/48 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::d7ce:8025:5642:773c/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+
+```
+Skip the nightly builds
+Skip the openSUSE
+
+
 
 ## Setting UP the webgui
 its MUCH easier to change some settings for if you tend or want to access the gNB / Core remotely that you can also access the GUI without ssh tunnels for the port. 
 [reference](https://www.sharetechnote.com/html/OpenRAN/OR_open5gs_webui.html)
+
+SKIP the _install Node.js on openSUSE_ cuz thats not our OS. 
+
+to validate that the webgui is working go to :
+http://localhost:9999
+login in admin/4123
 
 #5. Configurations gNB / Core configurations
 ## /srsRAN_Project/configs
