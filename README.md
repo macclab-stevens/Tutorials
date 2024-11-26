@@ -255,4 +255,5 @@ IN this case its 10.45.0.2
 
 # RANDOM References:
 [5G Tool Calcs](https://5g-tools.com/5g-nr-throughput-calculator/)
-
+[GSMA_Arena](https://www.gsmarena.com/)
+[NR ARFCNS to Freq](https://www.sqimway.com/nr_band.php)
