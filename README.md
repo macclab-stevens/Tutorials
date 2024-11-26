@@ -64,7 +64,7 @@ Device Address:
 
 
 # 3. Install srsRAN_Project
-
+[follow this for "Vannila" install](https://docs.srsran.com/projects/project/en/latest/user_manuals/source/installation.html)
 # 4. Install open5GS
 Follow [THIS GUIDE](https://open5gs.org/open5gs/docs/guide/01-quickstart/)
 Don't use the Source Install, its hard, and weird, i've had little sucess with it. If you do , remember that the configuration file is actually `example.yaml` or something like that... 
@@ -106,8 +106,33 @@ login in admin/4123
 
 
 ## /etc/open5GS/
-`/etc/open5GS/amf.yml`
-`/etc/open5GS/nrf`
+`code /etc/open5GS/`
+### `/etc/open5GS/amf.yml`
+in this file you want to change the MCC and MNC to match whatever you want. 001 - 01 works pretty well for the most part so we'll use that. 
+there are 3 MCC/MNC in this file.
+```bash
+$ amf.yaml
+     guami:
+       - plmn_id:
+-          mcc: 999 # << set this to 001
+-          mnc: 70 # <<< set this to 01
+         amf_id:
+           region: 2
+           set: 1
+     tai:
+       - plmn_id:
+-          mcc: 999 # << set this to 001
+-          mnc: 70 # <<< set this to 01
+         tac: 1
+     plmn_support:
+       - plmn_id:
+-          mcc: 999 # << set this to 001
+-          mnc: 70 # <<< set this to 01
+         s_nssai:
+           - sst: 1
+     security:
+```
+### `/etc/open5GS/nrf`
 
 
 #6. Sim Configuration
