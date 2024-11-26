@@ -244,7 +244,7 @@ Type <h> to view help
 
 
 # Working
-<img width="1258" alt="image" src="https://github.com/user-attachments/assets/001f5eba-4b8e-4925-be1f-46c8bd821113">
+![Uploading image.png…]()
 
 # RANDOM References:
 [5G Tool Calcs](https://5g-tools.com/5g-nr-throughput-calculator/)
