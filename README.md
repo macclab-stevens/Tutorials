@@ -152,6 +152,82 @@ nrf:
         mcc: 999 # << set to 001
         mnc: 70 # << set to 01
 ```
+when you are done w/ configurations restart the services:
+```bash
+sudo systemctl stop open5gs-mmed
+sudo systemctl stop open5gs-sgwcd
+sudo systemctl stop open5gs-smfd
+sudo systemctl stop open5gs-amfd
+sudo systemctl stop open5gs-sgwud
+sudo systemctl stop open5gs-upfd
+sudo systemctl stop open5gs-hssd
+sudo systemctl stop open5gs-pcrfd
+sudo systemctl stop open5gs-nrfd
+sudo systemctl stop open5gs-scpd
+sudo systemctl stop open5gs-seppd
+sudo systemctl stop open5gs-ausfd
+sudo systemctl stop open5gs-udmd
+sudo systemctl stop open5gs-pcfd
+sudo systemctl stop open5gs-nssfd
+sudo systemctl stop open5gs-bsfd
+sudo systemctl stop open5gs-udrd
+sudo systemctl stop open5gs-webui
+
+sudo systemctl restart open5gs-mmed
+sudo systemctl restart open5gs-sgwcd
+sudo systemctl restart open5gs-smfd
+sudo systemctl restart open5gs-amfd
+sudo systemctl restart open5gs-sgwud
+sudo systemctl restart open5gs-upfd
+sudo systemctl restart open5gs-hssd
+sudo systemctl restart open5gs-pcrfd
+sudo systemctl restart open5gs-nrfd
+sudo systemctl restart open5gs-scpd
+sudo systemctl restart open5gs-seppd
+sudo systemctl restart open5gs-ausfd
+sudo systemctl restart open5gs-udmd
+sudo systemctl restart open5gs-pcfd
+sudo systemctl restart open5gs-nssfd
+sudo systemctl restart open5gs-bsfd
+sudo systemctl restart open5gs-udrd
+sudo systemctl restart open5gs-webui
+```
+i like to copy the above into `/usr/local/sbin/restartOpen5GS` to its easier than copy-pasta
+
+# verify that srsRAN and Open5GS are configured and can talk properly:
+```bash
+sudo gnb -c ./00101gnb_rf_b200_tdd_n78_20mhz\ copy.yml 
+
+--== srsRAN gNB (commit 9d5dd742a) ==--
+
+
+The PRACH detector will not meet the performance requirements with the configuration {Format B4, ZCZ 0, SCS 30kHz, Rx ports 1}.
+Lower PHY in dual executor mode.
+Available radio types: uhd.
+[INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+[INFO] [LOGGING] Fastpath logging disabled at runtime.
+Making USRP object with args 'type=b200,num_recv_frames=64,num_send_frames=64'
+[INFO] [B200] Detected Device: B210
+[INFO] [B200] Operating over USB 3.
+[INFO] [B200] Initialize CODEC control...
+[INFO] [B200] Initialize Radio control...
+[INFO] [B200] Performing register loopback test... 
+[INFO] [B200] Register loopback test passed
+[INFO] [B200] Performing register loopback test... 
+[INFO] [B200] Register loopback test passed
+[INFO] [B200] Setting master clock rate selection to 'automatic'.
+[INFO] [B200] Asking for clock rate 16.000000 MHz... 
+[INFO] [B200] Actually got clock rate 16.000000 MHz.
+[INFO] [MULTI_USRP] Setting master clock rate selection to 'manual'.
+[INFO] [B200] Asking for clock rate 23.040000 MHz... 
+[INFO] [B200] Actually got clock rate 23.040000 MHz.
+Cell pci=1, bw=20 MHz, 1T1R, dl_arfcn=632628 (n78), dl_freq=3489.42 MHz, dl_ssb_arfcn=632256, ul_freq=3489.42 MHz
+
+N2: Connection to AMF on 127.0.0.5:38412 completed
+==== gNB started ===
+Type <h> to view help
+
+```
 
 #6. Sim Configuration
 ## pysim
