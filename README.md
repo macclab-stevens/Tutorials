@@ -43,8 +43,10 @@ Internet working? `ping 8.8.8.8`
 after the install check if you can update. 
 `apt update`
 If not you might need to set your clock. ( `date -s "2 June 2023 14:05:00"`)
-`apt update`
-`apt upgrade`
+```bash
+apt update
+apt upgrade
+```
 
 # 2. Setting Up UHD
 make sure the device is connected:
