@@ -117,13 +117,16 @@ login in admin/4123
 
 
 ## /etc/open5GS/
-if you get permission folders 
-`$ sudo chown -R $USER:$USER /etc/open5gs/`
-`$ chmod 777 /etc/open5GS/`
+`etc/open5GS` is where the configuration files are saved. 
+if you get permission errors for files in the folders. I like to edit these things in vscode. 
+```bash
+$ sudo chown -R $USER:$USER /etc/open5gs/
+$ chmod 777 /etc/open5GS/
+```
 `code /etc/open5GS/`
 ### `/etc/open5GS/amf.yml`
 in this file you want to change the MCC and MNC to match whatever you want. 001 - 01 works pretty well for the most part so we'll use that. 
-there are 3 MCC/MNC in this file.
+there are 3 MCC/MNC in this file. Thats all we need to change here. we'll change the gNb file to match the other defaults of open5GS. 
 ```bash
 $ amf.yaml
      guami:
@@ -195,6 +198,7 @@ sudo systemctl restart open5gs-udrd
 sudo systemctl restart open5gs-webui
 ```
 i like to copy the above into `/usr/local/sbin/restartOpen5GS` to its easier than copy-pasta
+don't forget to `chmod +x /usr/local/sbin/restartOpen5GS`
 
 # verify that srsRAN and Open5GS are configured and can talk properly:
 ```bash
@@ -230,7 +234,7 @@ N2: Connection to AMF on 127.0.0.5:38412 completed
 Type <h> to view help
 
 ```
-
+We know this is validated from the `==== gNB started ===` if there is an issue with the NGAP setup it will appear to get "stuck" at the `N2: Connection to AMF on 127.0.0.5:38412 completed` line instead.
 #6. Sim Configuration
 ## pysim
 
@@ -240,7 +244,8 @@ Type <h> to view help
 `sudo chmod o-rwx foldername to add permissions.`
 
 to see ip address assigned is in the SMF. (Session management function):
-``` macc@macc-desktop:~/srsRAN_Project/configs$ tail -f /var/log/open5gs/smf.log 
+```bash
+ macc@macc-desktop:~/srsRAN_Project/configs$ tail -f /var/log/open5gs/smf.log 
 11/26 14:19:58.951: [sbi] INFO: [PCF] (SCP-discover) NF registered [621a452a-ac2b-41ef-ba1a-71f88b864831] (../lib/sbi/path.c:212)
 11/26 14:19:58.951: [sbi] INFO: [621a452a-ac2b-41ef-ba1a-71f88b864831] NF Instance setup [type:PCF validity:0s] (../lib/sbi/path.c:227)
 11/26 14:19:58.951: [smf] INFO: NF EndPoint(addr) setup [127.0.0.13:7777] (../src/smf/npcf-handler.c:367)
