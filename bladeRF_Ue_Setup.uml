@@ -1,0 +1,17 @@
+@startuml
+object t450{
+Ubuntu 22.04
+srsRAN 4G - srsUE
+}
+object bladeRF
+object m70{
+Ubuntu 22.04
+srsRAN Project (5G)
+gNB
+Open5GS
+}
+object b200
+
+t450 <--> bladeRF
+m70 <--> b200
+@enduml
