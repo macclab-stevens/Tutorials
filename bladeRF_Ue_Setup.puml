@@ -2,6 +2,7 @@
 object t450{
 Ubuntu 22.04
 srsRAN 4G - srsUE
+test
 }
 object bladeRF
 object m70{
