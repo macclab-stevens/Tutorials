@@ -3,6 +3,8 @@ To view tutorials go the [wiki link under this repo.](https://github.com/macclab
 
 
 
+* [Voxl 5G Drone Setup](https://github.com/macclab-stevens/Tutorials/wiki/Drone-%E2%80%90-Voxel-Flight-2-Deck-5G-Modem)
+* [FN990A28 Modem Integration](https://github.com/macclab-stevens/Tutorials/wiki/FN990A28-Setup-and-Notes)
 * [How-to-Setup-5G-gNb-on-B210-with-Open5GS](https://github.com/macclab-stevens/Tutorials/wiki/How-to-Setup-5G-gNb-on-B210-with-Open5GS)
 * [Setting-up-srsUE-as-a-5G-UE-using-Raspberry-PI5-and-bladeRF-SDR](https://github.com/macclab-stevens/Tutorials/wiki/Setting-up-srsUE-as-a-5G-UE-using-Raspberry-PI5-and-bladeRF-SDR.)
 * [Setting up an Android UE for iperf3 Testing](https://github.com/macclab-stevens/Tutorials/wiki/Setting-up-a-UE-for-iperf3.)
